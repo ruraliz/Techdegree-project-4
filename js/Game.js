@@ -26,6 +26,23 @@ class Game{
         return phrase;
     };
     checkForWin(){
+        const hiddenLetters= document.getElementsByClassName('.hide')
+        if(hiddenLetters.length ===0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    removeLife(){
+        const liveHeartImage= document.querySelectorAll('.tries img')
+        if(this.missed < 5){
+            liveHeartImage[this.missed].src= 'images/lostHeart.png';
+            this.missed ++;
+        } else if(this.missed === 5){
+            this.gameOver();
+        }
+    }
+    gameOver(){
         
     }
 }
