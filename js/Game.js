@@ -25,4 +25,7 @@ class Game{
         const phrase= this.phrases[randomIndex];
         return phrase;
     };
+    checkForWin(){
+        
+    }
 }
