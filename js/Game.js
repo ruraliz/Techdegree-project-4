@@ -25,7 +25,7 @@ class Game{
         return phrase;
     };
     checkForWin(){
-        const hiddenLetters= document.getElementsByClassName('.hide')
+        const hiddenLetters= document.getElementsByClassName('hide')
         if(hiddenLetters.length ===0){
             return true;
         }else{
@@ -42,14 +42,18 @@ class Game{
         }
     }
     gameOver(gameWon){
-        const overlayH1= overlay.document.querySelector('h1')
+        const overlayH1= document.getElementById("game-over-message")
         overlay.style.display= 'block'
         if(gameWon){
             overlay.className= 'win'
-            overlayH1.innerHTML= "you winn"
+            overlayH1.innerHTML= "Yayyyy you are a winner"
         }else{
             overlay.className= 'lose'
-            overlayH1.innerHTML= "soryyy"
+            overlayH1.innerHTML= "Sorry game over, better luck next time"
         }    
+    }
+    //step 11
+    handleInteraction(button){
+        
     }
 }

@@ -22,10 +22,10 @@ class Phrase {
         return this.phrase.includes(letter);
     }
     showMatchedLetter(letter){   //displays the letter on the board that matches the letter the player selected 
-        const letter= document.querySelector('.letter')
-        for(let i= 0; i< letter.length; i++){
-            letter[i].classList.remove('hide')
-            letter[i].classList.add('show')
+        const matchLetter= document.getElementsByClassName(letter)
+        for(let i= 0; i< matchLetter.length; i++){
+            matchLetter[i].classList.remove('hide')
+            matchLetter[i].classList.add('show')
         }
     }
 }
