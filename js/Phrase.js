@@ -18,6 +18,14 @@ class Phrase {
             ul.appendChild(li);
         }
     }
-    // checkLetter()
-    // showMatchedLetter()
+    checkLetter(letter){ //checks to see if the letter selected by player matches one of the letter in the phrase
+        return this.phrase.includes(letter);
+    }
+    showMatchedLetter(letter){   //displays the letter on the board that matches the letter the player selected 
+        const letter= document.querySelector('.letter')
+        for(let i= 0; i< letter.length; i++){
+            letter[i].classList.remove('hide')
+            letter[i].classList.add('show')
+        }
+    }
 }
