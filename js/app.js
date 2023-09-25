@@ -12,9 +12,10 @@ startGameButton.addEventListener('click', (e)=> {
     game = new Game(); 
     game.startGame();
 })
-for (let i=0; i< keyBoard.length; i++){
-    keyBoard[i].addEventListener('click', (e) => {
+keyBoard.forEach(button => {
+    button.addEventListener('click', (e) => {
         game.handleInteraction(e.target)
     })
-}
+})
+
 

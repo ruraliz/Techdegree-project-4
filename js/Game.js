@@ -54,6 +54,18 @@ class Game{
     }
     //step 11
     handleInteraction(button){
-        
+        button.disabled= true;
+        const correctButton= this.activePhrase.checkLetter(button.textContent)
+        if(!correctButton){
+            button.classList.add('wrong')
+            this.removeLife();
+            
+        }else{
+            button.classList.add('chosen')
+            this.activePhrase.showMatchedLetter();
+            if(this.checkForWin()){
+                this.gameOver(true)
+            }
+        }
     }
 }
