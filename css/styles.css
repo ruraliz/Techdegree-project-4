@@ -1,6 +1,12 @@
 /* Main styles */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
-
+@keyframes mymove {
+  0%   {left: 0px; top: 0px;}
+  25%  {left: 200px; top: 0px;}
+  50%  {left: 200px; top: 200px;}
+  75%  {left: 0px; top: 200px;}
+  100% {left: 0px; top: 0px;}
+}
 /* Variables */
 
 :root {
@@ -10,7 +16,7 @@
   --color-neutral: #445069;
   --color-neutral-light: #D2D2D2;
   --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  --color-keys-light: #e5e5e5;
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
@@ -63,10 +69,14 @@ button {
 #btn__reset {
 	width: 200px;
 	margin: 0 auto;
+  background-image: linear-gradient(rgb(240, 243, 240), rgb(136, 241, 157));
 }
 
 .main-container {
   display: flex;
+  background-image: url('/Users/lrurangwa/Documents/Projects /Techdegree-project-4/images/word hunter.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
@@ -86,7 +96,7 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #f3f5f3;
 }
 
 
@@ -131,14 +141,14 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #4ff686;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #ee4e4e;
   color: #FFFFFF;
 }
 
@@ -176,7 +186,13 @@ button {
 }
 
 .title {
-  color: #FFF;
+  color:#dee2f8;
+  box-shadow: 0px 0px 10px currentcolor;
+  border: 5px solid transparent;
+  position:relative;
+  animation: mymove 4s 2;
+  animation-direction: alternate;
+
 }
 
 .start {
@@ -189,6 +205,7 @@ button {
 
 .win {
   background-color: var(--color-win);
+  padding: 300px;
 }
 
 .win a {
@@ -196,7 +213,8 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #ee7171;
+  padding: 300px;
 }
 
 .lose a {

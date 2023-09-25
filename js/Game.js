@@ -6,11 +6,15 @@ class Game{
     constructor() {
         this.missed=0;
         this.phrases=[
-            new Phrase('phrase one'),
-            new Phrase('phrase two'),
-            new Phrase('phrase three'),
-            new Phrase('phrase four'),
-            new Phrase('phrase five')
+            new Phrase('Speak of the devil'),
+            new Phrase('A piece of cake'),
+            new Phrase('Break a leg'),
+            new Phrase('No pain no gain'),
+            new Phrase('Let the cat out of the bag'),
+            new Phrase('Bite the bullet'),
+            new Phrase('The last straw'),
+            new Phrase('Once in a blue moon'),
+            new Phrase('kill two birds with one stone')
         ];
         this.activePhrase = null;
     }

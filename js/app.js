@@ -32,10 +32,11 @@ function resetGameBoard(){
     liveHeartImage.forEach(heartImage=> heartImage.src= 'images/liveHeart.png' )
 }
 
-document.addEventListener('keyup', (e)=>{
+document.addEventListener('keydown', (e)=>{
     keyBoard.forEach(button => {
         if(button.textContent === e.key){
             game.handleInteraction(button)
+            console.log(button)
         }
     })
 })
