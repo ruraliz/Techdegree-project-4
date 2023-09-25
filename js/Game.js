@@ -45,24 +45,23 @@ class Game{
         const overlayH1= document.getElementById("game-over-message")
         overlay.style.display= 'block'
         if(gameWon){
-            overlay.className= 'win'
+            overlay.classList.add('win') 
             overlayH1.innerHTML= "Yayyyy you are a winner"
         }else{
-            overlay.className= 'lose'
+            overlay.classList.add('lose') 
             overlayH1.innerHTML= "Sorry game over, better luck next time"
         }    
     }
-    //step 11
+
     handleInteraction(button){
         button.disabled= true;
         const correctButton= this.activePhrase.checkLetter(button.textContent)
         if(!correctButton){
             button.classList.add('wrong')
             this.removeLife();
-            
         }else{
-            button.classList.add('chosen')
-            this.activePhrase.showMatchedLetter();
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(button.textContent);
             if(this.checkForWin()){
                 this.gameOver(true)
             }
