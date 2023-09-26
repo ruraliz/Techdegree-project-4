@@ -45,18 +45,6 @@ class Game{ //Game class that manages the game state and logic.
             this.gameOver(false);
         }
     }
-    gameOver(gameWon){ //displays overlay screen with different properties depending on if the layer won or lost.
-        const overlayH1= document.getElementById("game-over-message")
-        overlay.style.display= 'block'
-        if(gameWon){
-            overlay.classList.add('win') 
-            overlayH1.innerHTML= "Yayyyy you are a winner"
-        }else{
-            overlay.classList.add('lose') 
-            overlayH1.innerHTML= "Sorry game over, better luck next time"
-        }    
-    }
-
     handleInteraction(button){ // if button has been clicked by player, it is disabled. also checks and adds different styling property if the player chooses a correct or wrong matching letter. If the player wins the game calls for gameOver method. 
         button.disabled= true;
         const correctButton= this.activePhrase.checkLetter(button.textContent)
@@ -70,5 +58,16 @@ class Game{ //Game class that manages the game state and logic.
                 this.gameOver(true)
             }
         }
+    }
+    gameOver(gameWon){ //displays overlay screen with different properties depending on if the layer won or lost.
+        const overlayH1= document.getElementById("game-over-message")
+        overlay.style.display= 'block'
+        if(gameWon){
+            overlay.className= 'win'
+            overlayH1.innerHTML= "Yayyyy you are a winner"
+        }else{
+            overlay.className= 'lose'
+            overlayH1.innerHTML= "Sorry game over, better luck next time"
+        }    
     }
 }
