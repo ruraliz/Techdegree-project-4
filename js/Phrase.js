@@ -2,11 +2,11 @@
  * Project 4 - OOP Game App
  * Phrase.js */
 const ul= document.getElementById('phrase').firstElementChild
-class Phrase {
-    constructor(phrase){
+class Phrase { //Phrase call that creates the phrase object. 
+    constructor(phrase){ //constructor with the phrase parameter. 
         this.phrase=phrase.toLowerCase();
     };
-    addPhraseToDisplay(){
+    addPhraseToDisplay(){ // creates li element under ul with appropriate classes and displays letter placeholder of phrase.
         for (let i = 0; i < this.phrase.length; i++){
             const li = document.createElement('li');
             if(this.phrase[i] === ' '){

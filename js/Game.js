@@ -2,10 +2,10 @@
  * Project 4 - OOP Game App
  * Game.js */
 const overlay= document.querySelector('#overlay')
-class Game{
+class Game{ //Game class that manages the game state and logic.
     constructor() {
-        this.missed=0;
-        this.phrases=[
+        this.missed=0; //tracks number of missed guesses.
+        this.phrases=[ //array of the phrases created from new instance of Phrase class
             new Phrase('Speak of the devil'),
             new Phrase('A piece of cake'),
             new Phrase('Break a leg'),
@@ -16,19 +16,19 @@ class Game{
             new Phrase('Once in a blue moon'),
             new Phrase('kill two birds with one stone')
         ];
-        this.activePhrase = null;
+        this.activePhrase = null; // the phrase object that is currently selected. initially null but once game starts hold value of phrase from getRandomPhrase() method. 
     }
-    startGame() {
-        overlay.style.display= 'none'
-        this.activePhrase= this.getRandomPhrase();
-        this.activePhrase.addPhraseToDisplay();
-    }
-    getRandomPhrase() {
+    getRandomPhrase() { //Goes through array of phrases and returns a random phrase.
         const randomIndex= Math.floor(Math.random() * this.phrases.length);
         const phrase= this.phrases[randomIndex];
         return phrase;
     };
-    checkForWin(){
+    startGame() {// method to hide start of game overlay and calls getRandomPhrase to put the random phrase into activePhrase and adds it to board by calling addPhraseToDisplay().
+        overlay.style.display= 'none'
+        this.activePhrase= this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+    };
+    checkForWin(){ //checks if all the previously hidden letters have been revealed meaning how many guesses the player got right or wrong.
         const hiddenLetters= document.getElementsByClassName('hide')
         if(hiddenLetters.length ===0){
             return true;
@@ -36,7 +36,7 @@ class Game{
             return false;
         }
     }
-    removeLife(){
+    removeLife(){ //removes life by replacing the liveHeart image with lostHeart image and if the player misses guesses five calls gameOver method. 
         const liveHeartImage= document.querySelectorAll('.tries img')
         if(this.missed < 5){
             liveHeartImage[this.missed].src= 'images/lostHeart.png';
@@ -45,7 +45,7 @@ class Game{
             this.gameOver(false);
         }
     }
-    gameOver(gameWon){
+    gameOver(gameWon){ //displays overlay screen with different properties depending on if the layer won or lost.
         const overlayH1= document.getElementById("game-over-message")
         overlay.style.display= 'block'
         if(gameWon){
@@ -57,7 +57,7 @@ class Game{
         }    
     }
 
-    handleInteraction(button){
+    handleInteraction(button){ // if button has been clicked by player, it is disabled. also checks and adds different styling property if the player chooses a correct or wrong matching letter. If the player wins the game calls for gameOver method. 
         button.disabled= true;
         const correctButton= this.activePhrase.checkLetter(button.textContent)
         if(!correctButton){

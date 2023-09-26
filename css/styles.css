@@ -74,9 +74,10 @@ button {
 
 .main-container {
   display: flex;
-  background-image: url('/Users/lrurangwa/Documents/Projects /Techdegree-project-4/images/word hunter.jpeg');
+  background-image: url('/Users/lrurangwa/Documents/Projects /Techdegree-project-4/images/game2.webp');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  background-position:50% 50%;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
@@ -96,7 +97,7 @@ button {
 /* Title */
 
 .header {
-  color: #f3f5f3;
+  color: #3a3f58;
 }
 
 
