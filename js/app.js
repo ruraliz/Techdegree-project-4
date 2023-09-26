@@ -32,10 +32,14 @@ function resetGameBoard(){ //After the game has ended, this function resets ever
     liveHeartImage.forEach(heartImage=> heartImage.src= 'images/liveHeart.png' )
 }
 
-document.addEventListener('keyup', (e)=>{ //event listener to let player use physcical computer keyboard to pick letters. 
+document.addEventListener('keydown', (event)=>{ //event listener to let player use physcical computer keyboard to pick letters. 
+    if (overlay.style.display === 'block'){
+        event.preventDefault();
+        return false;
+    }
     keyBoard.forEach(button => {
-        if(button.textContent === e.key){
+        if(button.textContent === event.key){
             game.handleInteraction(button)
-        }
+        } 
     })
 })

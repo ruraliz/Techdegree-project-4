@@ -4,7 +4,7 @@
 const overlay= document.querySelector('#overlay')
 class Game{ //Game class that manages the game state and logic.
     constructor() {
-        this.missed=0; //tracks number of missed guesses.
+        this.missed= 0; //tracks number of missed guesses.
         this.phrases=[ //array of the phrases created from new instance of Phrase class
             new Phrase('Speak of the devil'),
             new Phrase('A piece of cake'),
@@ -38,13 +38,13 @@ class Game{ //Game class that manages the game state and logic.
     }
     removeLife(){ //removes life by replacing the liveHeart image with lostHeart image and if the player misses guesses five calls gameOver method. 
         const liveHeartImage= document.querySelectorAll('.tries img')
-        if(this.missed < 5){
-            liveHeartImage[this.missed].src= 'images/lostHeart.png';
-            this.missed ++;
-        } else if(this.missed === 5){
-            this.gameOver(false);
+        liveHeartImage[this.missed].src= 'images/lostHeart.png';
+        this.missed ++;
+        if(this.missed === 5){
+            this.gameOver(false)
         }
     }
+
     handleInteraction(button){ // if button has been clicked by player, it is disabled. also checks and adds different styling property if the player chooses a correct or wrong matching letter. If the player wins the game calls for gameOver method. 
         button.disabled= true;
         const correctButton= this.activePhrase.checkLetter(button.textContent)
