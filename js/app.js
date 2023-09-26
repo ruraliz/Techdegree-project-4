@@ -36,7 +36,6 @@ document.addEventListener('keyup', (e)=>{ //event listener to let player use phy
     keyBoard.forEach(button => {
         if(button.textContent === e.key){
             game.handleInteraction(button)
-            console.log(button)
         }
     })
 })
