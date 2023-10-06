@@ -33,13 +33,15 @@ function resetGameBoard(){ //After the game has ended, this function resets ever
 }
 
 document.addEventListener('keydown', (event)=>{ //event listener to let player use physcical computer keyboard to pick letters. 
-    if (overlay.style.display === 'block'){
-        event.preventDefault();
-        return false;
+    if(game){
+        if (overlay.style.display === 'block'){
+            event.preventDefault();
+            return false;
+        }
+        keyBoard.forEach(button => {
+            if(button.textContent === event.key){
+                game.handleInteraction(button)
+            } 
+        })
     }
-    keyBoard.forEach(button => {
-        if(button.textContent === event.key){
-            game.handleInteraction(button)
-        } 
-    })
 })
